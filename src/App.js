@@ -15,11 +15,19 @@ class App extends Component {
 
   state = {
     food: getRandomCoordinates(),
+    direction: 'RIGHT',
     snakeDots: [
       [0,0],
       [2,0]
     ]
   }
+
+  componentDidMount() {
+    document.onkeydown = this.onKeyDown;
+
+  }
+
+
   render(){
     return (
       <div className="game-area">
