@@ -26,7 +26,24 @@ class App extends Component {
     document.onkeydown = this.onKeyDown;
 
   }
+  onKeyDown = (e) => {
+    e = e || window.event;
+    switch (e.keyCode) {
+      case 38:
+        this.setState({direction: 'UP'})
+        break;
+      case 40:
+          this.setState({direction: 'DOWN'})
+          break;
+      case 37:
+          this.setState({direction: 'LEFT'})
+          break;
+      case 39:
+          this.setState({direction: 'RIGHT'})
+          break;
 
+    }
+  }
 
   render(){
     return (
