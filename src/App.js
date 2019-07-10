@@ -23,6 +23,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+
+    setInterval(this.moveSnake, 500);
     document.onkeydown = this.onKeyDown;
 
   }
@@ -61,11 +63,15 @@ class App extends Component {
       case 'LEFT':
         head = [head[0] - 2, head[1]];
         break;
-      
-      
-
     }
-
+    // add heads to the copy of snakeDots
+    dots.push(head);
+    // remove first item of the array(the tail) with shift
+    dots.shift()
+    //set new dots array to the state (snakeDots)
+    this.setState({
+      snakeDots: dots
+    })
   }
 
 
