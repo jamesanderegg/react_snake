@@ -41,9 +41,33 @@ class App extends Component {
       case 39:
           this.setState({direction: 'RIGHT'})
           break;
-
     }
   }
+
+  moveSnake = () => {
+    let dots = [...this.state.snakeDots];
+    let head = dots[dots.length - 1];
+
+    switch (this.state.direction) {
+      case 'UP':
+        head = [head[0], head[1] - 2];
+        break;
+      case 'DOWN':
+        head = [head[0], head[1] + 2];
+        break;
+      case 'RIGHT':
+        head = [head[0] + 2, head[1]];
+        break;
+      case 'LEFT':
+        head = [head[0] - 2, head[1]];
+        break;
+      
+      
+
+    }
+
+  }
+
 
   render(){
     return (
