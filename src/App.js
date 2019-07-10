@@ -15,6 +15,7 @@ class App extends Component {
 
   state = {
     food: getRandomCoordinates(),
+    speed: 200,
     direction: 'RIGHT',
     snakeDots: [
       [0,0],
@@ -24,7 +25,7 @@ class App extends Component {
 
   componentDidMount() {
 
-    setInterval(this.moveSnake, 500);
+    setInterval(this.moveSnake, this.state.speed);
     document.onkeydown = this.onKeyDown;
 
   }
