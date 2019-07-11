@@ -24,11 +24,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-
     setInterval(this.moveSnake, this.state.speed);
     document.onkeydown = this.onKeyDown;
-
   }
+
+// We need to check out of bounds on each itteration
+  componentDidUpdate() {
+    this.checkIfOutOfBorders()
+  }
+
   onKeyDown = (e) => {
     e = e || window.event;
     switch (e.keyCode) {
@@ -80,8 +84,13 @@ class App extends Component {
     let head = this.state.snakeDots[this.state.snakeDots.length-1];
     if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0){
       //set alert for if statement
-      this.gameOver();
+      this.onGameOver();
     }
+  }
+
+
+  onGameOver() {
+    alert(`Game Over. Snake length is ${this.state.snakeDots.length}`);
   }
 
   render(){
