@@ -31,7 +31,8 @@ class App extends Component {
 
 // We need to check out of bounds on each itteration
   componentDidUpdate() {
-    this.checkIfOutOfBorders()
+    this.checkIfOutOfBorders();
+    this.checkIfCollapsed();
   }
 
   onKeyDown = (e) => {
