@@ -75,6 +75,11 @@ class App extends Component {
     })
   }
 
+  checkIfOutOfBorders() {
+    //get the head of the snake by getting the last item in the snakeDot array 
+    let head = this.state.snakeDots[this.state.snakeDots.length-1];
+
+  }
 
   render(){
     return (
