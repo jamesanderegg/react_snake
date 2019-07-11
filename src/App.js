@@ -89,6 +89,17 @@ class App extends Component {
     }
   }
 
+  checkIfCollapsed() {
+    let snake = [...this.state.snakeDots];
+    let head = snake[snake.length - 1];
+    snake.pop();
+    snake.forEach(dot => {
+      if(head[0] == dot[0] && head[1] == dot[1]){
+        this.onGameOver()
+      }
+    })
+
+  }
 
   onGameOver() {
     alert(`Game Over. Snake length is ${this.state.snakeDots.length}`);
